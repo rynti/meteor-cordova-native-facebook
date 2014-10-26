@@ -1,0 +1,32 @@
+<head>
+  <title>Native Facebook Login with Meteor &amp; Cordova</title>
+</head>
+
+<body>
+  {{#if loginFailed}}
+    <p>Login failed: {{loginFailed}}</p>
+  {{/if}}
+  <h1>Native Facebook Login with Meteor &amp; Cordova</h1>
+  {{#if isCordova}}
+    {{#if isLoggedIn}}
+      {{> userArea}}
+    {{else}}
+      {{> guestArea}}
+    {{/if}}
+  {{else}}
+    {{> webArea}}
+  {{/if}}
+</body>
+
+<template name="userArea">
+  <p>Hello, you successfully logged in!</p>
+  <button class="logout">Logout</button>
+</template>
+
+<template name="guestArea">
+  <button class="login">Login with Facebook</button>
+</template>
+
+<template name="webArea">
+  <p>You need to run this application with Cordova!</p>
+</template>
